@@ -7,6 +7,19 @@ this source if there are words you do not agree with, or even use your own text 
 to rebuild with `make clean` and `make` before using. Note that the text file must be sorted alphabetically (you can use the bash
 [sort](https://ss64.com/bash/sort.html) for example).
 
+# Example Path
+For example, a path might look like
+```
+$ ./wordpath pink blue
+pink
+pins
+pius
+plus
+flus
+flue
+blue
+```
+
 # Other Functions
 Feel free to read through the file misc.c for a list of other potentially cool functions that are not used by wordpath
 (but nonetheless return some interesting information).
