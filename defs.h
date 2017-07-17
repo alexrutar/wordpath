@@ -37,4 +37,5 @@ int degree(struct vertex v1);
 void print_adjacent(struct graph *g, struct vertex v);
 struct vertex get_vertex(char *str, struct graph *g);
 struct path min_path(struct graph *g, struct vertex source);
+struct graph *init_graph(void);
 #endif /* DEFS_H */
