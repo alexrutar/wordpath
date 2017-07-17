@@ -33,4 +33,8 @@ int init_connected(char[], char[]);
 void print_path(struct graph *g, char *source, char *target);
 void print_degree(struct graph *g, int deg);
 struct graph *make_graph(char *);
+int degree(struct vertex v1);
+void print_adjacent(struct graph *g, struct vertex v);
+struct vertex get_vertex(char *str, struct graph *g);
+struct path min_path(struct graph *g, struct vertex source);
 #endif /* DEFS_H */
