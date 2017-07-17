@@ -214,3 +214,18 @@ void max_dist(struct graph *g) {
     printf("\n%d maximum distance, from %s to %s.", total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
     return;
 }
+// returns the vertex with the largest degree
+struct vertex max_degree(struct graph *g) {
+    int cur_max = 0;
+    int idx = 0;
+    int tmp;
+    for(int i = 0; i < g->size; ++i) {
+        tmp = g->vertices[i].degree;
+        if(tmp > cur_max) {
+            idx = i;
+            cur_max = tmp;
+        }
+    }
+    return g->vertices[idx];
+}
+

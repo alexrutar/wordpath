@@ -1,21 +1,6 @@
 #include "defs.h"
 
 
-// returns the vertex with the largest degree
-struct vertex max_degree(struct graph *g) {
-    int cur_max = 0;
-    int idx = 0;
-    int tmp;
-    for(int i = 0; i < g->size; ++i) {
-        tmp = g->vertices[i].degree;
-        if(tmp > cur_max) {
-            idx = i;
-            cur_max = tmp;
-        }
-    }
-    return g->vertices[idx];
-}
-
 
 // args: 1 = end word
 //       2 = start word
