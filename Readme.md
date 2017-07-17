@@ -12,14 +12,15 @@ to rebuild with `make clean` and `make` before using. Note that the text file mu
 ### Example Path
 For example, a path might look like
 ```
-$ ./wordpath pink blue
-pink
-pins
-pius
-plus
-flus
-flue
-blue
+$ ./wordpath real fake
+Distance 6:
+real
+heal
+hell
+hall
+hale
+hake
+fake
 ```
 
 ## Other Functions
