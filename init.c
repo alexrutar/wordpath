@@ -1,5 +1,6 @@
 #include "defs.h"
-// 1 if two strings are "connected", zero otherwise
+
+// 1 if two strings are adjacent, 0 otherwise
 int init_connected(char str1[], char str2[]) {
     int b1 = str1[0] - str2[0];
     int b2 = str1[1] - str2[1];
@@ -12,13 +13,11 @@ int init_connected(char str1[], char str2[]) {
             (b1 != 0 && b2 == 0 && b3 == 0 && b4 == 0)) return 1;
     return 0;
 }
-// initialize the graph g
+
 struct graph *init_graph(void) {
-    // filename #define'd in defs.h (defaults to "four.txt")
     FILE *fp = fopen(GRAPH_FILE, "rb");
     struct graph *g;
     if (fp == NULL) {
-        printf("%s does not exist, building...\n", GRAPH_FILE);
         g = make_graph(SOURCE_FILE);
         FILE *g_file = fopen(GRAPH_FILE, "wb+");
         if(g_file != NULL) {
@@ -32,7 +31,6 @@ struct graph *init_graph(void) {
         }
     } else {
         g = malloc(sizeof(struct graph));
-        printf("%s already exists, reading...\n", GRAPH_FILE);
         fread(g, sizeof(struct graph), 1, fp);
         g->vertices = malloc(sizeof(struct vertex)*g->size);
         g->edges = malloc(sizeof(int)*g->size*g->size);

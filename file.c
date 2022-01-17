@@ -9,7 +9,7 @@ int is_all_alpha(char *string) {
 void alpha_filter (char *filename) {
     char string[MAX_CHAR];
     FILE *fp;
-    fp=fopen(filename, "r"); // I open the file to read it("r")
+    fp=fopen(filename, "r");
     while(fgets(string, MAX_CHAR, fp)!=NULL) {
         // acquire lines of the txt file till we reach the end of it.
         // remember that by doing in this way , in each loop, you save the new line in the same string

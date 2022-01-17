@@ -147,20 +147,20 @@ struct path min_path(struct graph *g, struct vertex source) {
     p.prev = prev;
     return p;
 }
-void print_path(struct graph *g, char *source, char *target) {
+int print_path(struct graph *g, char *source, char *target) {
     struct vertex trg = get_vertex(target, g);
     struct vertex src = get_vertex(source, g);
     struct path p = min_path(g, src);
     if(p.dists[trg.index] == INF_DIST) {
-        printf("Sorry, there is no path from \"%s\" to \"%s\".", source, target);
-        return;
+        printf("There is no path from \"%s\" to \"%s\".\n", source, target);
+        return 1;
     }
-    printf("Distance %d:\n", p.dists[trg.index]);
     int start = trg.index;
     while(start != src.index) {
         printf("%s\n", g->vertices[start].name);
         start = p.prev[start];
     }
     printf("%s\n", source);
+    return 0;
 }
 

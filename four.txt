@@ -1278,8 +1278,6 @@ inks
 inky
 inly
 inns
-inst
-intl
 into
 intr
 ions
@@ -1905,7 +1903,6 @@ olds
 oleo
 oles
 olio
-olla
 omen
 omit
 once

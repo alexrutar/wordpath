@@ -30,7 +30,7 @@ struct graph {
 
 int count_lines(char *);
 int init_connected(char[], char[]);
-void print_path(struct graph *g, char *source, char *target);
+int print_path(struct graph *g, char *source, char *target);
 void print_degree(struct graph *g, int deg);
 struct graph *make_graph(char *);
 int degree(struct vertex v1);
