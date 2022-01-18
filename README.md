@@ -34,7 +34,6 @@ Get the adjacent words in the word list:
 ```
 $ ./wordpath adjacent soup
 coup
-loup
 soap
 soul
 sour

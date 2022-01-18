@@ -14,7 +14,6 @@ acre
 acts
 adds
 adit
-ados
 aeon
 afar
 afro
@@ -34,21 +33,15 @@ airs
 airy
 ajar
 akin
-alai
-alan
 alar
 alas
 alba
 albs
 alee
 ales
-alfa
 alga
-alii
-alit
 alls
 ally
-alma
 alms
 aloe
 alps
@@ -57,9 +50,7 @@ alto
 alum
 amah
 amen
-amex
 amid
-amis
 ammo
 amok
 amps
@@ -76,14 +67,12 @@ anti
 ants
 anus
 aped
-aper
 apes
 apex
 apse
 aqua
 arab
 arch
-arco
 arcs
 area
 ares
@@ -97,14 +86,12 @@ arts
 arty
 arum
 asap
-asea
 ashy
 asia
 asks
 asps
 assn
 asst
-atma
 atom
 atop
 atty
@@ -123,7 +110,6 @@ awed
 awes
 awls
 awns
-awol
 awry
 axed
 axel
@@ -134,7 +120,6 @@ axle
 axon
 ayah
 ayes
-baal
 baas
 baba
 babe
@@ -142,7 +127,6 @@ babu
 baby
 back
 bade
-bads
 bags
 baht
 bail
@@ -198,15 +182,12 @@ bell
 belt
 bema
 bend
-bene
 bens
 bent
 berg
 berm
-bess
 best
 beta
-bete
 bets
 bevy
 beys
@@ -244,7 +225,6 @@ boar
 boas
 boat
 bobs
-boca
 bock
 bode
 bods
@@ -265,8 +245,6 @@ bona
 bond
 bone
 bong
-bono
-bons
 bony
 boob
 book
@@ -302,7 +280,6 @@ brew
 brie
 brig
 brim
-brin
 brio
 brit
 bros
@@ -322,7 +299,6 @@ bums
 bund
 bung
 bunk
-bunn
 buns
 bunt
 buoy
@@ -1580,7 +1556,6 @@ lost
 loth
 lots
 loud
-loup
 lour
 lout
 love
@@ -1592,7 +1567,6 @@ lucy
 luff
 luge
 lugs
-luke
 lull
 lulu
 lump
@@ -1640,7 +1614,6 @@ mark
 marl
 mars
 mart
-marx
 mary
 mash
 mask
