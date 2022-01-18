@@ -61,18 +61,15 @@ void free_graph(struct graph *g) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS ON VERTICES
 
-// returns the degree of a vertex v
-int degree(struct vertex v1) {
-    return v1.degree;
-}
-// returns 1 if the vertices are connected, 0 otherwise
 int connected(struct graph *g, struct vertex v1, struct vertex v2) {
+    // returns 1 if the graph are connected, 0 otherwise
     return g->edges[v1.index * g->size + v2.index];
 }
-// strcmp returns negative if a < b, positive if a > b, 0 if a = b
-// binary search to find the node in the graph g, assumes vertices are sorted alphabetically
-// returns the node immediately before if it doesn't exist
+
 struct vertex get_vertex(char *str, struct graph *g) {
+    // binary search to find the node in the graph g
+    // assumes vertices are sorted alphabetically
+    // returns the node immediately before if it doesn't exist
     int low = 0;
     int high = g->size-1;
     while(low <= high) {
@@ -87,15 +84,17 @@ struct vertex get_vertex(char *str, struct graph *g) {
     }
     return g->vertices[low];
 }
-// printes all the vertices in g that are adjacent to a vertex v
-void print_adjacent(struct graph *g, struct vertex v) {
-    printf("degree %d; ", v.degree);
-    printf("%s: ", v.name);
+int print_adjacent(struct graph *g, char *source) {
+    // prints all the vertices in g that are adjacent to a vertex v
+    struct vertex v =get_vertex(source, g);
+    int retcode = 1;
     for(int i = 0; i < g->size; ++i) {
-        /* if(init_connected(g->vertices[i].name, v.name)) printf("%s ", g->vertices[i].name); */
-        if(connected(g, g->vertices[i], v)) printf("%s ", g->vertices[i].name);
+        if(connected(g, g->vertices[i], v)) {
+            printf("%s\n", g->vertices[i].name);
+            retcode = 0;
+        }
     }
-    printf("\n");
+    return retcode;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -129,7 +128,6 @@ struct path min_path(struct graph *g, struct vertex source) {
     distances[source.index] = 0;
     while(!q_empty(Q, g->size)) {
         int u = min_q(g, Q, distances);
-        /* printf("%d\n", u); */
         int alt;
         for(int v = 0; v < g->size; ++v) {
             if(connected(g, g->vertices[v], g->vertices[u])) {
@@ -147,12 +145,13 @@ struct path min_path(struct graph *g, struct vertex source) {
     p.prev = prev;
     return p;
 }
+
 int print_path(struct graph *g, char *source, char *target) {
     struct vertex trg = get_vertex(target, g);
     struct vertex src = get_vertex(source, g);
     struct path p = min_path(g, src);
     if(p.dists[trg.index] == INF_DIST) {
-        printf("There is no path from \"%s\" to \"%s\".\n", source, target);
+        fprintf(stderr, "There is no path from \"%s\" to \"%s\".\n", target, source);
         return 1;
     }
     int start = trg.index;

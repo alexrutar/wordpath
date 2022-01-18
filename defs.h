@@ -24,18 +24,17 @@ struct vertex {
 };
 struct graph {
     int size;
-    struct vertex *vertices; // pointer to array of vertices
-    int *edges; // pointer to vector of ints (adjacency matrix)
+    struct vertex *vertices; // array of vertices
+    int *edges; // adjacency matrix
 };
 
 int count_lines(char *);
 int init_connected(char[], char[]);
 int print_path(struct graph *g, char *source, char *target);
-void print_degree(struct graph *g, int deg);
 struct graph *make_graph(char *);
-int degree(struct vertex v1);
-void print_adjacent(struct graph *g, struct vertex v);
+int print_adjacent(struct graph *g, char *source);
 struct vertex get_vertex(char *str, struct graph *g);
 struct path min_path(struct graph *g, struct vertex source);
 struct graph *init_graph(void);
+int max_dist(struct graph *g);
 #endif /* DEFS_H */

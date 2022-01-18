@@ -1,10 +1,5 @@
 #include "defs.h"
 
-void print_degree(struct graph *g, int deg) {
-    for(int i = 0; i < g->size; ++i) {
-        if(degree(g->vertices[i]) == deg) print_adjacent(g, g->vertices[i]);
-    }
-}
 struct vertex max_reachable(struct graph *g, char *source) {
     struct vertex src = get_vertex(source, g);
     struct path p = min_path(g, src);
@@ -22,14 +17,13 @@ struct vertex max_reachable(struct graph *g, char *source) {
 // takes a graph g and prints out the two nodes (as strings) that are the farthest possible distance apart
 // it's really slow
 // there's probably a faster way to do this
-void max_dist(struct graph *g) {
+int max_dist(struct graph *g) {
     int total_max = -1;
     int total_src = -1;
     int total_trg = -1;
     for(int i = 0; i < g->size; ++i) {
         struct vertex src = g->vertices[i];
         struct path p = min_path(g, src);
-        printf("\n");
         int max = -1;
         int idx = -1;
         for(int i = 0; i < g->size; ++i) {
@@ -43,12 +37,12 @@ void max_dist(struct graph *g) {
             total_src = i;
             total_trg = idx;
         }
-        printf("Step %d of %d: %d maximum distance, from %s to %s.", i, g->size, total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
+        printf("Step %d of %d: %d maximum distance, from %s to %s.\n", i, g->size, total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
         free(p.dists);
         free(p.prev);
     }
-    printf("\n%d maximum distance, from %s to %s.", total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
-    return;
+    printf("Max distance %d, from %s to %s.\n", total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
+    return 0;
 }
 // returns the vertex with the largest degree
 struct vertex max_degree(struct graph *g) {

@@ -1,4 +1,4 @@
-OBJECTS = wordpath.o graph.o file.o init.o
+OBJECTS = wordpath.o graph.o file.o init.o misc.o
 SHELL := /bin/bash
 
 all : $(OBJECTS)
@@ -8,6 +8,7 @@ init.o : defs.h
 wordpath.o : defs.h
 graph.o : defs.h
 file.o : defs.h
+misc.o : defs.h
 
 .PHONY : clean
 clean :
