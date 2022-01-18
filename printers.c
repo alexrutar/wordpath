@@ -27,8 +27,8 @@ int print_shortest_path(struct graph *g, char *source, char *target) {
     struct vertex trg = get_vertex(target, g);
     struct vertex src = get_vertex(source, g);
     struct path p = min_path(g, trg);
-    if(p.dists[trg.index] == INF_DIST) {
-        fprintf(stderr, "There is no path from \"%s\" to \"%s\".\n", target, source);
+    if(p.dists[src.index] == INF_DIST) {
+        fprintf(stderr, "There is no path from \"%s\" to \"%s\".\n", source, target);
         return 1;
     }
     int start = src.index;

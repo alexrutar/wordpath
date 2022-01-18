@@ -15,6 +15,7 @@ clean :
 	rm -f wordpath graph $(OBJECTS)
 test: wordpath
 	./wordpath search real fake
+	! ./wordpath search good evil
 	./wordpath adjacent soup
 	./wordpath farthest soup
 	./wordpath isolated
