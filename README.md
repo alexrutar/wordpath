@@ -47,9 +47,14 @@ axle
 Get the isolated vertices (words with no neighbours):
 ```
 $ ./wordpath isolated
+afro
+agog
+ague
 ...
+zori
+zuni
 ```
-Get the words which are the maximum (finite) distance apart in the graph (this is very slow):
+Get the words which are the maximum (finite) distance apart (this is very slow):
 ```
 $ ./wordpath diameter
 ...
@@ -62,5 +67,4 @@ Note that this program will work with any word list - the words do not need to h
 Feel free to modify this source if there are words you do not agree with, or even use your own text source.
 If you do make changes, ensure that you first delete the object file `graph`.
 
-Note that the text file must be sorted alphabetically for the program to work.
-
+The text file must be sorted alphabetically for the program to work.
