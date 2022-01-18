@@ -10,7 +10,7 @@ cd wordpath && make
 This will probably work with most mildly modern versions of gcc.
 
 ## Basic usage
-The main function determines the distance between words.
+The main subcommand `search` determines the distance between words.
 For example, to find the distance between the words "real" and "fake", run:
 ```
 $ ./wordpath search real fake
@@ -21,6 +21,12 @@ hall
 hale
 hake
 fake
+```
+If there is no path, the program returns an error:
+```
+$ ./wordpath search good evil
+There is no path from "good" to "evil".
+(return code 1)
 ```
 
 ## Other Functions
@@ -47,7 +53,7 @@ Get the words which are the maximum (finite) distance apart in the graph (this i
 ```
 $ ./wordpath diameter
 ...
-Max distance 16, from abut to inca
+Max distance 16, from "abut" to "inca".
 ```
 
 ## Customizing the word dictionary

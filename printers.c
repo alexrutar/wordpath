@@ -68,10 +68,10 @@ int print_max_dist(struct graph *g) {
             total_src = i;
             total_trg = idx;
         }
-        printf("Step %d of %d: %d maximum distance, from %s to %s.\n", i, g->size, total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
+        printf("Step %d of %d: %d maximum distance, from \"%s\" to \"%s\".\n", i, g->size, total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
         free(p.dists);
         free(p.prev);
     }
-    printf("Max distance %d, from %s to %s.\n", total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
+    printf("Max distance %d, from \"%s\" to \"%s\".\n", total_max, g->vertices[total_src].name, g->vertices[total_trg].name);
     return 0;
 }

@@ -18,6 +18,7 @@ int init_connected(char str1[], char str2[]) {
 }
 
 struct graph *init_graph(void) {
+    // initialize the graph: if the object file exists, read from it; otherwise, build it
     FILE *fp = fopen(GRAPH_FILE, "rb");
     struct graph *g;
     if (fp == NULL) {
