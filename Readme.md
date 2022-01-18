@@ -1,16 +1,17 @@
 # Wordpath
+Find the shortest path between two four letter words, where two words are considered adjacent if one can be obtained from the other by changing a single letter.
 
-## Summary
-Code used to generate the shortest path between two four letter words, where two words are considered adjacent if they can be changed using a single letter difference.
-Build using `make` and run using `./wordpath search START END`.
-The dictionary used is the file "four.txt" which is extracted from the file "words.txt", which was in turn downloaded from the [Project Gutenburg Website](http://www.gutenberg.org/ebooks/673).
-Feel free to modify this source if there are words you do not agree with, or even use your own text source.
-If you do make changes, make sure to delete the object file `graph`.
+## Installation
+Simply clone the repository and build using `make`:
+```
+git clone https://github.com/alexrutar/wordpath
+cd wordpath && make
+```
+This will probably work with most mildly modern versions of gcc.
 
-Note that the text file must be sorted alphabetically for the program to work.
-
-### Example Path
-For example, a path might look like
+## Basic usage
+The main function determines the distance between words.
+For example, to find the distance between the words "real" and "fake", run:
 ```
 $ ./wordpath search real fake
 real
@@ -48,3 +49,12 @@ $ ./wordpath diameter
 ...
 Max distance 16, from abut to inca
 ```
+
+## Customizing the word dictionary
+The dictionary used is the file [four.txt](four.txt) which is extracted from the word list from the [Project Gutenburg Website](http://www.gutenberg.org/ebooks/673).
+Note that this program will work with any word list - the words do not need to have exactly four letters.
+Feel free to modify this source if there are words you do not agree with, or even use your own text source.
+If you do make changes, ensure that you first delete the object file `graph`.
+
+Note that the text file must be sorted alphabetically for the program to work.
+
