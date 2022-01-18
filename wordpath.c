@@ -2,8 +2,8 @@
 
 int main (int argc, char *argv[]) {
     struct graph *g = init_graph();
-    if(argc < 1) {
-        fprintf(stderr, "usage: wordpath [adjacent|search] ...\n");
+    if(argc < 2) {
+        fprintf(stderr, "usage: wordpath [adjacent|diameter|isolated|farthest|search] ...\n");
         return 1;
     }
 
@@ -55,7 +55,7 @@ int main (int argc, char *argv[]) {
 
     else {
         fprintf(stderr, "usage: wordpath [adjacent|search] ...\n");
-        fprintf(stderr, "Invalid option %s\n", argv[2]);
+        fprintf(stderr, "Invalid option '%s'\n", argv[1]);
         return 1;
     }
 }
