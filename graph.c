@@ -84,18 +84,6 @@ struct vertex get_vertex(char *str, struct graph *g) {
     }
     return g->vertices[low];
 }
-int print_adjacent(struct graph *g, char *source) {
-    // prints all the vertices in g that are adjacent to a vertex v
-    struct vertex v =get_vertex(source, g);
-    int retcode = 1;
-    for(int i = 0; i < g->size; ++i) {
-        if(connected(g, g->vertices[i], v)) {
-            printf("%s\n", g->vertices[i].name);
-            retcode = 0;
-        }
-    }
-    return retcode;
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int q_empty(int *Q, int sz) {
@@ -116,6 +104,12 @@ int min_q(struct graph *g, int *Q, int *dists) {
     Q[min_idx] = -1;
     return min_idx;
 }
+
+void free_path(struct path p) {
+    free(p.dists);
+    free(p.prev);
+}
+
 struct path min_path(struct graph *g, struct vertex source) {
     int *distances = (int *)malloc(g->size * sizeof(int));
     int *prev = (int *)malloc(g->size * sizeof(int));
@@ -146,20 +140,32 @@ struct path min_path(struct graph *g, struct vertex source) {
     return p;
 }
 
-int print_path(struct graph *g, char *source, char *target) {
-    struct vertex trg = get_vertex(target, g);
-    struct vertex src = get_vertex(source, g);
-    struct path p = min_path(g, src);
-    if(p.dists[trg.index] == INF_DIST) {
-        fprintf(stderr, "There is no path from \"%s\" to \"%s\".\n", target, source);
-        return 1;
+struct vertex farthest(struct graph *g, struct vertex source) {
+    // get the vertex with maximum distance from source
+    struct path p = min_path(g, source);
+    int dist = 0;
+    int farthest_index = source.index;
+    for(int i = 0; i < g->size; ++i) {
+        if(p.dists[i] != INF_DIST && p.dists[i] > dist) {
+            dist = p.dists[i];
+            farthest_index = i;
+        }
     }
-    int start = trg.index;
-    while(start != src.index) {
-        printf("%s\n", g->vertices[start].name);
-        start = p.prev[start];
-    }
-    printf("%s\n", source);
-    return 0;
+    free_path(p);
+    return g->vertices[farthest_index];
 }
 
+struct vertex max_degree(struct graph *g) {
+    // returns the vertex with the largest degree
+    int cur_max = 0;
+    int idx = 0;
+    int tmp;
+    for(int i = 0; i < g->size; ++i) {
+        tmp = g->vertices[i].degree;
+        if(tmp > cur_max) {
+            idx = i;
+            cur_max = tmp;
+        }
+    }
+    return g->vertices[idx];
+}

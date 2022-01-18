@@ -21,7 +21,6 @@ afro
 agar
 aged
 ages
-agha
 agin
 agog
 ague
@@ -64,7 +63,6 @@ amis
 ammo
 amok
 amps
-amyl
 anal
 ands
 anew
@@ -73,7 +71,6 @@ ankh
 anna
 anno
 anon
-ansi
 ante
 anti
 ants
@@ -110,7 +107,6 @@ asst
 atma
 atom
 atop
-attn
 atty
 auks
 auld
@@ -1723,7 +1719,6 @@ mist
 mite
 mitt
 mixt
-mktg
 moan
 moas
 moat
@@ -1742,7 +1737,6 @@ moly
 moms
 monk
 mono
-mons
 mony
 mood
 moon

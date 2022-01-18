@@ -11,11 +11,9 @@
 #define SOURCE_FILE "four.txt"
 #define GRAPH_FILE "graph"
 
-
 struct path {
-    int *dists;
-    int *prev;
-    char *source;
+    int *dists; // distances from the vertex
+    int *prev; // index for the next position in an optimal path
 };
 struct vertex {
     int degree;
@@ -30,11 +28,19 @@ struct graph {
 
 int count_lines(char *);
 int init_connected(char[], char[]);
-int print_path(struct graph *g, char *source, char *target);
+int connected(struct graph *g, struct vertex v1, struct vertex v2);
+struct vertex farthest(struct graph *g, struct vertex source);
+
 struct graph *make_graph(char *);
-int print_adjacent(struct graph *g, char *source);
-struct vertex get_vertex(char *str, struct graph *g);
-struct path min_path(struct graph *g, struct vertex source);
 struct graph *init_graph(void);
-int max_dist(struct graph *g);
+struct vertex get_vertex(char *str, struct graph *g);
+
+struct path min_path(struct graph *g, struct vertex source);
+void free_path(struct path p);
+
+int print_max_dist(struct graph *g);
+int print_shortest_path(struct graph *g, char *source, char *target);
+int print_adjacent(struct graph *g, char *source);
+int print_farthest(struct graph *g, char *word);
+int print_isolated(struct graph *g);
 #endif /* DEFS_H */

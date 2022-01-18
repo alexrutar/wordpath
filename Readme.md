@@ -32,10 +32,19 @@ soap
 soul
 sour
 ```
+Get a word which has maximum distance from the given word:
+```
+$ ./wordpath farthest soup
+axle
+```
+Get the isolated vertices (words with no neighbours):
+```
+$ ./wordpath isolated
+...
+```
 Get the words which are the maximum (finite) distance apart in the graph (this is very slow):
 ```
 $ ./wordpath diameter
 ...
 Max distance 16, from abut to inca
 ```
-

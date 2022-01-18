@@ -13,7 +13,7 @@ int main (int argc, char *argv[]) {
             return 1;
         }
         else {
-            return print_path(g, argv[3], argv[2]);
+            return print_shortest_path(g, argv[2], argv[3]);
         }
     }
 
@@ -27,11 +27,29 @@ int main (int argc, char *argv[]) {
     }
 
     else if(strcmp(argv[1], "farthest") == 0) {
-        if(argc != 2) {
-            fprintf(stderr, "usage: wordpath farthest\n");
+        if(argc != 3) {
+            fprintf(stderr, "usage: wordpath farthest WORD\n");
             return 1;
         } else {
-            return max_dist(g);
+            return print_farthest(g, argv[2]);
+        }
+    }
+
+    else if(strcmp(argv[1], "diameter") == 0) {
+        if(argc != 2) {
+            fprintf(stderr, "usage: wordpath diameter\n");
+            return 1;
+        } else {
+            return print_max_dist(g);
+        }
+    }
+
+    else if(strcmp(argv[1], "isolated") == 0) {
+        if(argc != 2) {
+            fprintf(stderr, "usage: wordpath isolated\n");
+            return 1;
+        } else {
+            return print_isolated(g);
         }
     }
 
@@ -41,4 +59,3 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 }
-
